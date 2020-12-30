@@ -3,7 +3,7 @@ import Query
 
 schema = graphene.Schema(query=Query.UserQuery)
 
-result = schema.execute(
+result_query = schema.execute(
     '''
      {
          users(first: 2){
@@ -15,4 +15,12 @@ result = schema.execute(
     '''
 )
 
-print(result)
+result_mutation = schema.execute(
+    '''
+    mutation createeUser
+    '''
+)
+
+print(result_query)
+
+print(result_mutation)
