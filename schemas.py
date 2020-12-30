@@ -8,8 +8,8 @@ users = '''
     '''
 
 createUser = '''
-    mutation createeUser{
-        createUser(username: "TestBujosa"){
+    mutation createUser($username: String){
+        createUser(username: $username){
             user{
                 username
             }
