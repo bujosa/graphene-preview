@@ -10,7 +10,7 @@ result_query = schema.execute(
 )
 
 result_mutation = schema.execute(
-    schemas.createUser
+    schemas.createUser, variable_values={'username': "Bujosa"}
 )
 
 print(result_query)
