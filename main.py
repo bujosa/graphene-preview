@@ -1,24 +1,16 @@
 import graphene
-import Query 
+import query 
+import mutation
+import schemas
 
-schema = graphene.Schema(query=Query.UserQuery)
+schema = graphene.Schema(query=query.UserQuery, mutation=mutation.UserMutation)
 
 result_query = schema.execute(
-    '''
-     {
-         users(first: 2){
-             id
-             username
-             lastLogin
-         }
-     }
-    '''
+    schemas.users
 )
 
 result_mutation = schema.execute(
-    '''
-    mutation createeUser
-    '''
+    schemas.createUser
 )
 
 print(result_query)

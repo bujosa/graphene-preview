@@ -1,8 +1,8 @@
 import graphene
-import User
+import user
 from datetime import datetime
 
-UserType = User.User
+UserType = user.User
 
 class CreateUser(graphene.Mutation):
     class Arguments:

@@ -1,15 +1,15 @@
 import graphene
-import User
+import user
 from datetime import datetime
 
-user = User.User
+User = user.User
 
 class UserQuery(graphene.ObjectType):
-    users = graphene.List(user, first=graphene.Int())
+    users = graphene.List(User, first=graphene.Int())
 
     def resolve_users(self, info, first):
         return [
-            user(username='Test1', lastLogin=datetime.now()),
-            user(username='Test2', lastLogin=datetime.now()),
-            user(username='Test3', lastLogin=datetime.now())
+            User(username='Test1', lastLogin=datetime.now()),
+            User(username='Test2', lastLogin=datetime.now()),
+            User(username='Test3', lastLogin=datetime.now())
         ][:first]
